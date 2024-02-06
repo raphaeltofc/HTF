@@ -1,0 +1,53 @@
+# Node dependencies
+node_modules/
+
+# Cypress cache directories
+cypress/screenshots/
+cypress/videos/
+
+# Log files
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~ 
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Environment variables and configuration files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+config.json
+
+# Build output
+/dist
+/tmp
+/out
+/build
+
+
+# Miscellaneous
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.seed
+*.db
+*.sql
+*.tar.gz
+*.zip
+*.tgz
+*.gzip
