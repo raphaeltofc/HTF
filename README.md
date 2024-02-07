@@ -17,13 +17,13 @@ To set up your environment for running Cypress tests, follow these steps:
 Clone the project to your local machine:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/raphaeltofc/HTF
 ```
 
 ### 2. Navigate to the Project Directory
 Change your current directory to the project's directory:
 ```bash
-cd <project-directory-name>
+cd HTF
 ```
 
 ### 3. Install Dependencies
@@ -52,10 +52,10 @@ This command runs all test files without opening the GUI.
 #### Bugs Found
 | Bug ID | Bug Title                                                              | Priority |
 |--------|------------------------------------------------------------------------|----------|
-| HTF-BUG001 | An exception is generated when entering an unexpected date format during registration | Low      |
-| HTF-BUG002 | Despite the success message, it was not possible to delete a computer | High     |
-| HTF-BUG003 | The number of computers does not change, despite creating one or more new ones | Medium   |
-| HTF-BUG004 | The search filter does not work correctly for newly added computers    | High     |
+| HTF001 | An exception is generated when entering an unexpected date format during registration | Low      |
+| HTF002 | Despite the success message, it was not possible to delete a computer | High     |
+| HTF003 | The number of computers does not change, despite creating one or more new ones | Medium   |
+| HTF004 | The search filter does not work correctly for newly added computers    | High     |
 
 
 
