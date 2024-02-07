@@ -2,72 +2,90 @@ describe('Computer Database Tests Add Computer', () => {
   beforeEach(() => {
     cy.visit('/');
   });
-
-  it('Home - Verify Titles', () => {
   
-    //Header Title
-    cy.get('h1.fill > .fill')
-    .should('have.text', 'Computer database')
-
-    //Verify Titles
-    cy.get('#main > h1')
-    .should('be.visible')
-    .and('contain', 'computers found')
-  });
-
-  it('Home - Verify Search Field Exists', () => {
-    cy.get('#searchbox')
-    .should('be.visible')
-    .and('have.attr', 'placeholder', 'Filter by computer name...')
-  });
-
-  it('Home - Verify Buttons', () => {
-    //Serch submit 
-    cy.get('#searchsubmit')
-    .should('be.visible')
-    .and('have.value', 'Filter by name')
-
-    //add button
+  it('Add a New Computer - Mandatory Fields Only', () => {
+    //Validate Mandatory Fields When Adding a New Computer
     cy.get('#add')
     .should('be.visible')
     .and('have.text', 'Add a new computer')
-  });
+    .click()
 
-  it('Home - Verify Table', () => {
-    //Verify table exists and has more than zero rows
-    cy.get('.computers.zebra-striped').should('exist');
-    cy.get('.computers.zebra-striped tbody tr').its('length').should('be.gt', 0)
+    // check the url
+    cy.url().should('include', '/new')
+
+
+    cy.get(':nth-child(1) > label')
+    .should('be.visible')
+    .and('have.text', 'Computer name')
+
+    //generate random name
+    function generateComputerName() {
+      const randomNumber = Math.floor(Math.random() * 1001);
+      return `htf${randomNumber}`;
+    }
+    const computerName = generateComputerName();
+   
+    cy.get('#name')
+    .type(computerName)
+
+    cy.get('.primary')
+    .should('have.value', 'Create this computer')
+    .click()
     
-    //Verify Table Columns
-    cy.get('.col-name > a')
-    .should('have.text', 'Computer name')
+    cy.url().should('eq', 'https://computer-database.gatling.io/computers');
 
-    cy.get('.col-introduced > a')
-    .should('have.text', 'Introduced')
+    cy.get('.alert-message')
+    .should('have.text',`Done !  Computer ${computerName} has been created`)
 
-    cy.get('.col-discontinued > a')
-    .should('have.text', 'Discontinued')
-
-    cy.get('.col-company > a')
-    .should('have.text', 'Company')
-  });
-  it('Home - Verify Pagination Selector', () => {
-    //previous
-    cy.get('.prev > a')
-    .should('be.visible')
-    .and('have.text', '← Previous')
-
-    //current
-    cy.get('.current > a')
-    .should('have.text', 'Displaying 1 to 10 of 574')
-
-    //next
-    cy.get('.next > a')
-    .should('be.visible')
-    .and('have.text', 'Next →')
-
+    //check if it exists in the table
+    //cy.get('#searchbox')
+    //.type(computerName)
+    //cy.get('#searchsubmit')
+    //.click()
   });
 
+  it('Add a New Computer - All Fields Filled', () => {
+    //Validate Mandatory Fields When Adding a New Computer
+    cy.get('#add')
+    .should('be.visible')
+    .and('have.text', 'Add a new computer')
+    .click()
+
+    // check the url
+    cy.url().should('include', '/new')
+
+    cy.get(':nth-child(1) > label')
+    .should('be.visible')
+    .and('have.text', 'Computer name')
+
+    //generate random name
+    function generateComputerName() {
+      const randomNumber = Math.floor(Math.random() * 1001);
+      return `htf-${randomNumber}`;
+    }
+    const computerName = generateComputerName();
+   
+    cy.get('#name')
+    .type(computerName)    
+
+    cy.get('#introduced')
+    .type('2024-01-01')
+
+    cy.get('#discontinued')
+    .type('2024-01-02')
+
+    cy.get('#company')
+    .select('Apple Inc.')
+
+    cy.get('.primary')
+    .should('have.value', 'Create this computer')
+    .click()
+    
+    cy.url().should('eq', 'https://computer-database.gatling.io/computers');
+
+    cy.get('.alert-message')
+    .should('have.text',`Done !  Computer ${computerName} has been created`)
+  });
 });
 
 

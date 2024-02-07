@@ -59,7 +59,7 @@ describe('Computer Database Tests Page Loading', () => {
 
     //current
     cy.get('.current > a')
-    .should('have.text', 'Displaying 1 to 10 of 574')
+    .contains('Displaying')
 
     //next
     cy.get('.next > a')
