@@ -52,10 +52,13 @@ This command runs all test files without opening the GUI.
 #### Bugs Found
 | Bug ID | Bug Title                                                              | Priority |
 |--------|------------------------------------------------------------------------|----------|
-| HTF001 | An exception is generated when entering an unexpected date format during registration | Low      |
-| HTF002 | Despite the success message, it was not possible to delete a computer | High     |
-| HTF003 | The number of computers does not change, despite creating one or more new ones | Medium   |
-| HTF004 | The search filter does not work correctly for newly added computers    | High     |
+| HTFB1 | An exception is generated when entering an unexpected date format during registration | Low      |
+| HTFB2 | Despite the success message, it was not possible to delete a computer | High     |
+| HTFB3 | The number of computers does not change, despite creating one or more new ones | Medium   |
+| HTFB4 | The search filter does not work correctly for newly added computers    | High     |
 
+### Approach to Testing
+
+In tackling the testing of the HTF project using Cypress, the tests were strategically divided into smoke and regression tests. The primary actions, reflecting a CRUD (Create, Read, Update, Delete) approach, were prioritized to include scenarios for both insertion and deletion of data. Moreover, efforts were made to cover additional, less prominent scenarios such as page loading and other functionalities. This comprehensive approach ensures a robust evaluation of the application's overall performance and user experience.
 
 
